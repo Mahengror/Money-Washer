@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencatat Pengeluaran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Pencatat Pengeluaran</h1>
+    </header>
+    
+    <main class="container">
+        <section class="summary-section">
+            <div class="summary-card">
+                <h2>Total Pengeluaran</h2>
+                <p id="total-amount" class="amount">Rp 0</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Tambah Transaksi</h2>
+            <form id="expense-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="date-input">Tanggal</label>
+                        <input type="date" id="date-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category-input">Kategori</label>
+                        <select id="category-input" required>
+                            <option value="" disabled selected>Pilih kategori</option>
+                            <option value="Makanan">Makanan</option>
+                            <option value="Transportasi">Transportasi</option>
+                            <option value="Hiburan">Hiburan</option>
+                            <option value="Tagihan">Tagihan</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="desc-input">Deskripsi</label>
+                        <input type="text" id="desc-input" placeholder="Misal: Makan siang, bensin" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="amount-input">Jumlah (Rp)</label>
+                        <input type="number" id="amount-input" min="1" step="1" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Catat Pengeluaran</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <h2>Riwayat Transaksi</h2>
+            
+            <div class="table-container">
+                <table id="expense-table" class="hidden">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Deskripsi</th>
+                            <th>Kategori</th>
+                            <th class="amount-cell">Jumlah</th>
+                            <th class="action-col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expense-list">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="empty-state" class="empty-state hidden">
+                <p>Belum ada pengeluaran yang dicatat. Transaksi Anda akan muncul di sini.</p>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
